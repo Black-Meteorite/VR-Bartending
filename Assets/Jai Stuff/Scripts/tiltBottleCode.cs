@@ -13,6 +13,8 @@ public class tiltBottleCode : MonoBehaviour
 
     public string alchoholType;
 
+    public Transform dropSpawnPoint;
+
     //How fast drops flow
     public float dropRate = 0.5f;
 
@@ -22,23 +24,19 @@ public class tiltBottleCode : MonoBehaviour
     private float lastDropTime = 0f;
     void Update()
     {
-        Vector3 rotation = transform.eulerAngles;
+        float tiltAmount = Vector3.Angle(dropSpawnPoint.up, Vector3.up);
 
-        // Convert 0-360° to -180° to 180°
-        rotation.x = (rotation.x > 180) ? rotation.x - 360 : rotation.x;
-        rotation.y = (rotation.y > 180) ? rotation.y - 360 : rotation.y;
-        rotation.z = (rotation.z > 180) ? rotation.z - 360 : rotation.z;
-        
-        //Debug.Log(rotation.x);
+        Debug.Log("Tilt Amount: " + tiltAmount);
 
-        if(rotation.x > 0){
+        if (tiltAmount > 90f)
+        {
             //Debug.Log("POURING!");
             if (Time.time > lastDropTime + dropRate)
             {
-                if ((rotation.x / 30) > 1){
+                if ((tiltAmount / 180) > 1){
                     dropRate = 0.1f;
                 }else{
-                    dropRate = 1 - (rotation.x / 30);
+                    dropRate = 1 - (tiltAmount / 180);
                 }
                 
                 lastDropTime = Time.time;
@@ -48,7 +46,7 @@ public class tiltBottleCode : MonoBehaviour
     }
 
 
-    public Transform dropSpawnPoint;
+    
     void SpawnDrop()
     {
         GameObject drop = Instantiate(dropPrefab, dropSpawnPoint.position, Quaternion.identity);

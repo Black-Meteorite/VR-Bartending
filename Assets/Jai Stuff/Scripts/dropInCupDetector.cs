@@ -13,13 +13,14 @@ public class NewMonoBehaviourScript : MonoBehaviour
     
     void Update()
     {
-        Debug.Log(listOfDrops.Count);
+        //Debug.Log(listOfDrops.Count);
     }
 
     
     void OnTriggerEnter(Collider collision)
     {
-        Debug.Log("Collided with: " + collision.gameObject.name);
+        //
+        //Debug.Log("Collided with: " + collision.gameObject.name);
         listOfDrops.Add(collision.gameObject.name);
         Destroy(collision.gameObject);
     }
