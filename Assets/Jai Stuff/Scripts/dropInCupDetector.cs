@@ -21,7 +21,10 @@ public class NewMonoBehaviourScript : MonoBehaviour
     {
         //
         //Debug.Log("Collided with: " + collision.gameObject.name);
-        listOfDrops.Add(collision.gameObject.name);
-        Destroy(collision.gameObject);
+        if (collision.transform.tag.Equals("Drop"))
+        {
+            listOfDrops.Add(collision.gameObject.name);
+            Destroy(collision.gameObject);
+        }
     }
 }
