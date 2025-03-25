@@ -26,7 +26,7 @@ public class tiltBottleCode : MonoBehaviour
     {
         float tiltAmount = Vector3.Angle(dropSpawnPoint.up, Vector3.up);
 
-        Debug.Log("Tilt Amount: " + tiltAmount);
+        //Debug.Log("Tilt Amount: " + tiltAmount);
 
         if (tiltAmount > 90f)
         {
@@ -43,6 +43,8 @@ public class tiltBottleCode : MonoBehaviour
                 SpawnDrop();
             }
         }
+
+        
     }
 
 
