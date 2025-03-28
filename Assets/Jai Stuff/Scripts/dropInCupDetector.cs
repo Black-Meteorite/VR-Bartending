@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 
 public class NewMonoBehaviourScript : MonoBehaviour
 {
@@ -10,10 +11,17 @@ public class NewMonoBehaviourScript : MonoBehaviour
     }
 
     List<string> listOfDrops = new List<string>();
-    
+    HashSet<string> uniqueDrops = new HashSet<string>();
+
+
     void Update()
     {
         //Debug.Log(listOfDrops.Count);
+
+        // foreach (string drop in uniqueDrops){
+        //     int count = listOfDrops.Count(name => name == drop);
+        //     Debug.Log(drop + " appears " + count + " times");
+        // }
     }
 
     
@@ -24,6 +32,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
         if (collision.transform.tag.Equals("Drop"))
         {
             listOfDrops.Add(collision.gameObject.name);
+            // uniqueDrops.Add(collision.gameObject.name);
             Destroy(collision.gameObject);
         }
     }
