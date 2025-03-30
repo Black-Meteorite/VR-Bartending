@@ -66,7 +66,7 @@ public class tiltBottleCode : MonoBehaviour
             Renderer dropRenderer = drop.GetComponent<Renderer>();
             if (dropRenderer != null)
             {
-                dropRenderer.material = dropColor;
+               // dropRenderer.material = dropColor;
             }
         }
 

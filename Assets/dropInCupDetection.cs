@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class dropInCupDetection : MonoBehaviour
 {
+    public object ingredients { get; internal set; }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

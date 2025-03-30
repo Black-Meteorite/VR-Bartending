@@ -14,17 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recipeName: Strawberry Soju
   ingredients:
-  - ingredientName: Strawberries
+  - ingredientName: Strawberry
     amount: 2
-    isMixed: 0
   - ingredientName: Soju
     amount: 3
-    isMixed: 0
   - ingredientName: Sprite
     amount: 3
-    isMixed: 0
   - ingredientName: Calpico
     amount: 4
-    isMixed: 0
   isMixed: 0
-  isStirred: 0
+  isStirred: 1

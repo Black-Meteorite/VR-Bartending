@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 7981270010458293826}
   - component: {fileID: 3098898517228078623}
   - component: {fileID: 1531151305045840716}
+  - component: {fileID: 9046430611424990339}
   m_Layer: 0
   m_Name: mini_drop
-  m_TagString: Untagged
+  m_TagString: Drop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6579018313996928872}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7117687, y: -0, z: -0, w: -0.7024139}
+  m_LocalRotation: {x: -0.71176845, y: 0, z: 0, w: -0.7024141}
   m_LocalPosition: {x: 7.203, y: 1.359, z: 3.132}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -138,3 +139,19 @@ CapsuleCollider:
   m_Height: 0.03186494
   m_Direction: 2
   m_Center: {x: 0, y: 0.00002100269, z: 0.0056959987}
+--- !u!114 &9046430611424990339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6579018313996928872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aea65b8374b9fe42aee468fa81509c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alcoholData: {fileID: 11400000, guid: 9227fe306a0a3df4dafcd7a87eb47bad, type: 2}
+  dropValue: 0
+  isMixed: 0
+  alcoholType: 0

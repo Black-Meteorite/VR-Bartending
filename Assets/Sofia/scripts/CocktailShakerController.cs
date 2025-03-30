@@ -8,6 +8,8 @@ public class CocktailShakerController : MonoBehaviour
     public Vector3 endingPositions;
     public float currentDistance;
     public float shakedDistance;
+    public bool isShaked;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -32,4 +34,6 @@ public class CocktailShakerController : MonoBehaviour
         startingPositions = endingPositions;
         //Debug.Log($"Shaked Distance: {currentDistance}");
     }
+
+
 }
