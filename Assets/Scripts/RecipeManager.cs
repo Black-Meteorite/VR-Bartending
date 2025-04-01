@@ -1,13 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class RecipeManager : MonoBehaviour
 {
     public List<Recipe> recipes;
-    public Text recipeTitle;
-    public Text ingredientsText;
-    public Text garnishText;
+    public TMP_Text recipeTitle;
+    public TMP_Text ingredientsText;
+    public TMP_Text garnishText;
     public Image drinkImage;
     private int currentIndex= 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
