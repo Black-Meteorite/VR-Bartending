@@ -12,17 +12,18 @@ public class dropInCupDetector : MonoBehaviour
 
 
     public Dictionary<string, float> ingredients = new Dictionary<string, float>();
+    public string activeIngredient; 
 
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        ingredients.Add("Strawberry", 2);
+       /* ingredients.Add("Strawberry", 2);
         ingredients.Add("Soju", 3);
         ingredients.Add("Sprite", 3);
         ingredients.Add("Calpico", 4);
-        ingredients.Add("isMixed", 1);
+        ingredients.Add("isMixed", 1);*/
     }
 
 
@@ -32,7 +33,7 @@ public class dropInCupDetector : MonoBehaviour
 
         foreach (var item in ingredients)
         {
-            Debug.Log($"Key: {item.Key}, dropAmount: {item.Value}");
+            //Debug.Log($"Key: {item.Key}, dropAmount: {item.Value}");
         }
     }
 
@@ -55,6 +56,9 @@ public class dropInCupDetector : MonoBehaviour
                 ingredients[alcoholType] += dropValue;
                 
             }
+  
+            activeIngredient = alcoholType;
+            
             Destroy(collision.gameObject);
         }
     }

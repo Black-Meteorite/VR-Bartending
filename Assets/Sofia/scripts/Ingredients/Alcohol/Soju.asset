@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Soju
   m_EditorClassIdentifier: 
   alcoholType: 0
-  dropColor: {fileID: 0}
-  dropValue: 0
+  dropColor: {fileID: 2100000, guid: f5d3160ba129e434b913f8b8c9c3e6b1, type: 2}
+  dropValue: 1

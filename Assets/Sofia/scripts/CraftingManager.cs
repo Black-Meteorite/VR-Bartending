@@ -18,8 +18,10 @@ public class CraftingManager : MonoBehaviour
       ingredients.Add("Sprite", 3);
       ingredients.Add("Calpico", 4);
       //ingredients.Add("isMixed", 1);*/
-      ingredients = (Dictionary<string, float>)this.GetComponent<dropInCupDetection>().ingredients;
-      CraftDrink(ingredients, recipes);
+      if (ingredients.Count == 0) { 
+         
+          CraftDrink(ingredients, recipes);
+        }
     }
 
     // Update is called once per frame
