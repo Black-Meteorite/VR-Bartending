@@ -28,7 +28,7 @@ public class IngredientsInCupUI : MonoBehaviour
         var detector = cupDetectionArea.GetComponent<dropInCupDetector>();
         activeIngredient = detector.activeIngredient;
         //If the ingredient is not in the list and active ingredient's amount does not equal the listed amount
-        if (!listedIngredients.ContainsKey(activeIngredient) || listedIngredients[activeIngredient] != detector.ingredients[activeIngredient])
+        if (!string.IsNullOrEmpty(activeIngredient) && detector.ingredients.ContainsKey(activeIngredient))
         {
             ingredientsText.GetComponent<TextMeshProUGUI>().text = "";
             //Adds ingredient to the list

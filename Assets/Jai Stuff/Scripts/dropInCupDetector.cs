@@ -19,11 +19,11 @@ public class dropInCupDetector : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-       /* ingredients.Add("Strawberry", 2);
+        ingredients.Add("Strawberry", 2);
         ingredients.Add("Soju", 3);
         ingredients.Add("Sprite", 3);
         ingredients.Add("Calpico", 4);
-        ingredients.Add("isMixed", 1);*/
+        ingredients.Add("isMixed", 1);
     }
 
 
