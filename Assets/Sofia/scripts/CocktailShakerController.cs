@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System;
+using System.Collections.Generic;
 
 public class CocktailShakerController : MonoBehaviour
 {
@@ -8,32 +9,33 @@ public class CocktailShakerController : MonoBehaviour
     public Vector3 endingPositions;
     public float currentDistance;
     public float shakedDistance;
-    public bool isShaked;
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created  
     void Start()
     {
         shakedDistance = 10f;
         currentDistance = 0f;
         startingPositions = transform.position;
-
-
     }
 
-    // Update is called once per frame
+    // Update is called once per frame  
     void Update()
     {
-        AddDistancesTraveled();
+       
+         AddDistancesTraveled();
+        
     }
-
 
     private void AddDistancesTraveled()
     {
         endingPositions = transform.position;
         currentDistance += Vector3.Distance(startingPositions, endingPositions);
         startingPositions = endingPositions;
-        //Debug.Log($"Shaked Distance: {currentDistance}");
+        if (currentDistance >= shakedDistance)
+        {
+            this.GetComponent<dropInCupDetector>().isMixed = true;
+        }
+        //Debug.Log($"Shaked Distance: {currentDistance}");  
     }
-
-
 }

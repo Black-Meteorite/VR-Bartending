@@ -19,6 +19,28 @@ public class IngredientsInCupUI : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        var detector = cupDetectionArea.GetComponent<dropInCupDetector>();
+        activeIngredient = detector.activeIngredient;
+        //If the ingredient is not in the list and active ingredient's amount does not equal the listed amount
+        if (!string.IsNullOrEmpty(activeIngredient) && detector.ingredients.ContainsKey(activeIngredient))
+        {
+            ingredientsText.GetComponent<TextMeshProUGUI>().text = "";
+            //Adds ingredient to the list
+            if (!listedIngredients.ContainsKey(activeIngredient))
+            {
+                listedIngredients.Add(activeIngredient, detector.ingredients[activeIngredient]);
+            }
+            else //Updates ingredient amount
+            {
+                listedIngredients[activeIngredient] = detector.ingredients[activeIngredient];
+            }
+            foreach (var item in listedIngredients)
+            {
+                ingredientsText.GetComponent<TextMeshProUGUI>().text += item.Key + ": " + item.Value + "ML\n";
+            }
+
+
+        }
 
     }
 

@@ -10,7 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5534921663130433665}
   - component: {fileID: 6999979708981224492}
-  - component: {fileID: 6000289881674950913}
+  - component: {fileID: 1323797955181233276}
+  - component: {fileID: 661330475249835916}
+  - component: {fileID: 7443400421304765680}
   m_Layer: 0
   m_Name: IngredientDetector
   m_TagString: Untagged
@@ -54,7 +56,26 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 0.4861164, z: 0.9547472}
   m_Center: {x: 0, y: -0.70818186, z: -0.006682873}
---- !u!114 &6000289881674950913
+--- !u!114 &1323797955181233276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2629929470667144189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 039c198a1955b8245b813dafdf5b1d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixableRecipes: []
+  startingPositions: {x: 0, y: 0, z: 0}
+  endingPositions: {x: 0, y: 0, z: 0}
+  currentDistance: 0
+  shakedDistance: 0
+  isShaked: 0
+  isIced: 0
+--- !u!114 &661330475249835916
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -66,7 +87,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 231e798dfec1c4280aad46128d235ba8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  recipes: []
+  mixableRecipes:
+  - {fileID: 11400000, guid: a387dc62801818d44a24ce87dfe81d5c, type: 2}
   activeIngredient: 
+--- !u!114 &7443400421304765680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2629929470667144189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41cafe835da4d9b47868392676d13b43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5088966356329497630
 GameObject:
   m_ObjectHideFlags: 0
@@ -79,7 +115,6 @@ GameObject:
   - component: {fileID: 1998372958318009603}
   - component: {fileID: 2373814259701483463}
   - component: {fileID: 5049174018800843328}
-  - component: {fileID: 2071881561344646317}
   - component: {fileID: 6111195408294223995}
   - component: {fileID: 8237121786812828684}
   - component: {fileID: 6080916216701599771}
@@ -182,23 +217,6 @@ CapsuleCollider:
   m_Height: 1.3184005
   m_Direction: 1
   m_Center: {x: 0.000000074505806, y: -0.38706645, z: 0.15920013}
---- !u!114 &2071881561344646317
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5088966356329497630}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 039c198a1955b8245b813dafdf5b1d49, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startingPositions: {x: 0, y: 0, z: 0}
-  endingPositions: {x: 0, y: 0, z: 0}
-  currentDistance: 0
-  shakedDistance: 0
-  isShaked: 0
 --- !u!114 &6111195408294223995
 MonoBehaviour:
   m_ObjectHideFlags: 0

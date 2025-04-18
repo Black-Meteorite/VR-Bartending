@@ -24,6 +24,16 @@ public class tiltBottleCode : MonoBehaviour
     private float lastDropTime = 0f;
     void Update()
     {
+
+        if (dropPrefab != null)
+        {
+            TriggerPouring();
+        }
+    }
+
+
+    void TriggerPouring()
+    {
         float tiltAmount = Vector3.Angle(dropSpawnPoint.up, Vector3.up);
 
         //Debug.Log("Tilt Amount: " + tiltAmount);
@@ -33,22 +43,21 @@ public class tiltBottleCode : MonoBehaviour
             //Debug.Log("POURING!");
             if (Time.time > lastDropTime + dropRate)
             {
-                if ((tiltAmount / 180) > 1){
+                if ((tiltAmount / 180) > 1)
+                {
                     dropRate = 0.1f;
-                }else{
+                }
+                else
+                {
                     dropRate = 1 - (tiltAmount / 180);
                 }
-                
+
                 lastDropTime = Time.time;
                 SpawnDrop();
             }
         }
 
-        
     }
-
-
-    
     void SpawnDrop()
     {
         GameObject drop = Instantiate(dropPrefab, dropSpawnPoint.position, Quaternion.identity);
