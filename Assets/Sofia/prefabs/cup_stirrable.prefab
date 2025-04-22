@@ -418,8 +418,8 @@ GameObject:
   m_Component:
   - component: {fileID: 309218654376154634}
   - component: {fileID: 9082049154738075128}
-  - component: {fileID: 3770417354512139677}
-  - component: {fileID: 2338795252643257736}
+  - component: {fileID: 698118393487884374}
+  - component: {fileID: 8911256453159488977}
   m_Layer: 0
   m_Name: glassDropDetect
   m_TagString: Untagged
@@ -463,19 +463,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.45873523, y: 0.24850246, z: 0.4495592}
   m_Center: {x: -0.22149086, y: -0.09726751, z: -0.0036356742}
---- !u!114 &3770417354512139677
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5538529841137751729}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 231e798dfec1c4280aad46128d235ba8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2338795252643257736
+--- !u!114 &698118393487884374
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -488,3 +476,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recipes: []
+--- !u!114 &8911256453159488977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5538529841137751729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 231e798dfec1c4280aad46128d235ba8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeIngredient: 

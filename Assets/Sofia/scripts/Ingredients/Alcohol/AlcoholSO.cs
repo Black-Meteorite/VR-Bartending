@@ -9,7 +9,10 @@ public class AlcoholSO : ScriptableObject
         Soju,
         Whiskey,
         Vodka,
-        Wine
+        Wine,
+        DryVermouth,
+        Gin, 
+        Martini
     }
 
     public AlcoholType alcoholType;

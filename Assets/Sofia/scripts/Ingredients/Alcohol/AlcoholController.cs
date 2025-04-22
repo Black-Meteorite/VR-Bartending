@@ -5,7 +5,6 @@ public class AlcoholController : MonoBehaviour
 {
     public AlcoholSO alcoholData;
     public float dropValue;
-    public bool isMixed;
     public AlcoholSO.AlcoholType alcoholType;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
