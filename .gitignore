@@ -72,4 +72,4 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 
-
+/[Aa]ssets/Settings/Project Configuration/BasicScene.scene.template
