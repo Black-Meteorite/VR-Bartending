@@ -28,9 +28,9 @@ public class FillProgressBar : MonoBehaviour
     {
         //Checks if an ingredient is actively being used
         var detector = cupDetectionArea.GetComponent<dropInCupDetector>();
-        if (detector.activeIngredient != null && detector.ingredients.ContainsKey(detector.activeIngredient))
+        if (detector.currentActiveIngredient.name != null && detector.ingredients.ContainsKey(detector.currentActiveIngredient.name))
         {
-            activeIngredient = detector.activeIngredient;
+            activeIngredient = detector.currentActiveIngredient.name;
             amount = detector.ingredients[activeIngredient];
 
             measurementDisplay.GetComponent<TextMeshProUGUI>().text = activeIngredient + ": " + amount + "ML";

@@ -19,43 +19,38 @@ public class IngredientsInCupUI : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        var detector = cupDetectionArea.GetComponent<dropInCupDetector>();
-        activeIngredient = detector.activeIngredient;
-        //If the ingredient is not in the list and active ingredient's amount does not equal the listed amount
-        if (!string.IsNullOrEmpty(activeIngredient) && detector.ingredients.ContainsKey(activeIngredient))
-        {
-            ingredientsText.GetComponent<TextMeshProUGUI>().text = "";
-            //Adds ingredient to the list
-            if (!listedIngredients.ContainsKey(activeIngredient))
-            {
-                listedIngredients.Add(activeIngredient, detector.ingredients[activeIngredient]);
-            }
-            else //Updates ingredient amount
-            {
-                listedIngredients[activeIngredient] = detector.ingredients[activeIngredient];
-            }
-            foreach (var item in listedIngredients)
-            {
-                ingredientsText.GetComponent<TextMeshProUGUI>().text += item.Key + ": " + item.Value + "ML\n";
-            }
-
-
-        }
+        UpdateIngredientsDisplayed();
 
     }
 
     // Update is called once per frame
     void Update()
     {
+      
+        UpdateIngredientsDisplayed();
+        
+    }
+
+
+    void UpdateIngredientsDisplayed()
+    {
+        
         var detector = cupDetectionArea.GetComponent<dropInCupDetector>();
-        activeIngredient = detector.activeIngredient;
+        if (detector == null)
+        {
+            return;
+        }
+        activeIngredient = detector.currentActiveIngredient.name;
+        string activeIngredientType = detector.currentActiveIngredient.type;
         //If the ingredient is not in the list and active ingredient's amount does not equal the listed amount
         if (!string.IsNullOrEmpty(activeIngredient) && detector.ingredients.ContainsKey(activeIngredient))
         {
+            
+
             ingredientsText.GetComponent<TextMeshProUGUI>().text = "";
             //Adds ingredient to the list
             if (!listedIngredients.ContainsKey(activeIngredient))
-              {
+            {
                 listedIngredients.Add(activeIngredient, detector.ingredients[activeIngredient]);
             }
             else //Updates ingredient amount
@@ -64,15 +59,25 @@ public class IngredientsInCupUI : MonoBehaviour
             }
             foreach (var item in listedIngredients)
             {
-                ingredientsText.GetComponent<TextMeshProUGUI>().text += item.Key + ": " + item.Value + "ML\n";
+                string units = "";
+                //Determines units
+                if (activeIngredientType == "Alcohol")
+                {
+                    units = "ML";
+                }
+                else if (activeIngredientType == "Garnish")
+                {
+                    units = "Slice";
+                }
+                else if (activeIngredientType == "Ice")
+                {
+                    units = "Portion";
+                }
+                ingredientsText.GetComponent<TextMeshProUGUI>().text += item.Key + ": " + item.Value + " " + units + "\n";
             }
 
 
         }
 
-       
-        
-
-        
     }
 }
