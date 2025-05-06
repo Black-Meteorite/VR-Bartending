@@ -52,8 +52,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.45873523, y: 0.24850246, z: 0.4495592}
-  m_Center: {x: -0.22149086, y: -0.09726751, z: -0.0036356742}
+  m_Size: {x: 0.6576197, y: 0.5340042, z: 0.6606257}
+  m_Center: {x: -0.22440296, y: 0.045483164, z: 0.0044985013}
 --- !u!114 &6603032209235122945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,7 +132,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 7.362, y: 1.16, z: 3.266}
-  m_LocalScale: {x: 40, y: 40, z: 40}
+  m_LocalScale: {x: 7, y: 7, z: 7}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 309218654376154634}
@@ -263,7 +263,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!114 &24804212175039048
 MonoBehaviour:
@@ -406,8 +406,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.010494649, y: 0.008752074, z: 0.0035405392}
-  m_Center: {x: 0.0023046434, y: -0.0011262721, z: -0.008229735}
+  m_Size: {x: 0.010312219, y: 0.0073491465, z: 0.0024324404}
+  m_Center: {x: -0.00022895103, y: 0.0010590717, z: -0.008783785}
 --- !u!1 &5538529841137751729
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,8 +461,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.45873523, y: 0.24850246, z: 0.4495592}
-  m_Center: {x: -0.22149086, y: -0.09726751, z: -0.0036356742}
+  m_Size: {x: 0.570161, y: 0.6366023, z: 0.63386655}
+  m_Center: {x: -0.20034994, y: 0.09678225, z: -0.05022799}
 --- !u!114 &698118393487884374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -475,7 +475,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41cafe835da4d9b47868392676d13b43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recipes: []
 --- !u!114 &8911256453159488977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -488,4 +487,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 231e798dfec1c4280aad46128d235ba8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CupRecipes:
+  - {fileID: 11400000, guid: afd6cad338a956d4abf276eb7c5d59db, type: 2}
+  ShakerRecipes: []
+  mixedAlcoholData: []
+  drop: {fileID: 0}
+  isMixed: 0
+  isStirred: 0
   activeIngredient: 

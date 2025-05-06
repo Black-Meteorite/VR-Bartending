@@ -11,10 +11,10 @@ public class IngredientsInCupUI : MonoBehaviour
 {
     public GameObject ingredientsText;
     public GameObject cupDetectionArea;
-    public Dictionary<string, float> listedIngredients = new Dictionary<string, float>();
+    public Dictionary<string, int> listedIngredients = new Dictionary<string, int>();
 
 
-    private float amount;
+    private int amount;
     private string activeIngredient;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

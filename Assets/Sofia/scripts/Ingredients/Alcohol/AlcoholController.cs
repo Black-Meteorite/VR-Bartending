@@ -4,7 +4,7 @@ using UnityEngine;
 public class AlcoholController : MonoBehaviour
 {
     public AlcoholSO alcoholData;
-    public float dropValue;
+    public int dropValue;
     public AlcoholSO.AlcoholType alcoholType;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

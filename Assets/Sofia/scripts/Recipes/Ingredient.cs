@@ -2,6 +2,6 @@
 public class Ingredient
 {
     public string ingredientName;
-    public float amount;
+    public int amount;
 
 }

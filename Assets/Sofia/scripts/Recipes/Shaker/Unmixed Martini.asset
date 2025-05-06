@@ -17,6 +17,8 @@ MonoBehaviour:
     amount: 30
   - ingredientName: Gin
     amount: 60
+  - ingredientName: Ice
+    amount: 1
   resultIngredient:
     ingredientName: Martini
     amount: 90
