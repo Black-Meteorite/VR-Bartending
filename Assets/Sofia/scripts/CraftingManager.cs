@@ -37,7 +37,10 @@ public class CraftingManager : MonoBehaviour
             craftedDrink = isMatchingRecipe(ingredients, recipe, isStirred);
             if (craftedDrink)
             {
+                //Spawns drink
+                FindFirstObjectByType<DrinkManager>().SpawnDrink(recipe.recipeName);
                 return recipe.recipeName;
+
             }
         }
         return null;
@@ -53,6 +56,7 @@ public class CraftingManager : MonoBehaviour
             {
                 // Debug.Log($"Mixed: {recipe.resultIngredient.ingredientName} ");  
                 return recipe.resultIngredient.ingredientName;
+                
             }
         }
 

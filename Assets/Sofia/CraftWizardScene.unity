@@ -5602,11 +5602,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 454860549}
   m_CullTransparentMesh: 1
---- !u!1 &461061240 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1047145137287158936, guid: f0bfa386091dc0b4ebb7a1824ed2a973, type: 3}
-  m_PrefabInstance: {fileID: 5647173029696389208}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &461863019
 GameObject:
   m_ObjectHideFlags: 0
@@ -6671,6 +6666,57 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 547347421}
   m_CullTransparentMesh: 1
+--- !u!1 &559879369
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 559879371}
+  - component: {fileID: 559879372}
+  m_Layer: 0
+  m_Name: DrinkManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &559879371
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559879369}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.662, y: 0.759, z: 4.062}
+  m_LocalScale: {x: 1, y: 0.05, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &559879372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559879369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a84cd14e7be68ae469bb848eb10fdcff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Drinks:
+  - name: StrawberrySoju
+    drink: {fileID: 1523552826}
+    contents: {fileID: 0}
+    color: {fileID: 0}
+    garnish: {fileID: 0}
+  spawnPosition: {x: 6, y: 0.8, z: 4}
 --- !u!1 &571480428
 GameObject:
   m_ObjectHideFlags: 0
@@ -22108,6 +22154,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8515503587274144537, guid: 64a95090965e5e44c92a710afef2bb02, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9015213472318510762, guid: 64a95090965e5e44c92a710afef2bb02, type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 756192407}
     - target: {fileID: 1804115603063742, guid: 2a79468e213672b4984d41d9f26ab16a, type: 3}
       propertyPath: m_Name
       value: Knife2
@@ -22152,14 +22206,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8515503587274144537, guid: 64a95090965e5e44c92a710afef2bb02, type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9015213472318510762, guid: 64a95090965e5e44c92a710afef2bb02, type: 3}
-      propertyPath: m_InteractionManager
-      value: 
-      objectReference: {fileID: 756192407}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -27576,14 +27622,14 @@ PrefabInstance:
     - target: {fileID: 188913522643371661, guid: c04e185ef01d8d54598fe8847839a62b, type: 3}
       propertyPath: cupDetector
       value: 
-      objectReference: {fileID: 461061240}
+      objectReference: {fileID: 623051080}
     - target: {fileID: 2459133522249176979, guid: c04e185ef01d8d54598fe8847839a62b, type: 3}
       propertyPath: m_Name
       value: StirUI
       objectReference: {fileID: 0}
     - target: {fileID: 2459133522249176979, guid: c04e185ef01d8d54598fe8847839a62b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8990443618652574531, guid: c04e185ef01d8d54598fe8847839a62b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -28892,3 +28938,4 @@ SceneRoots:
   - {fileID: 1464085934}
   - {fileID: 1439970685}
   - {fileID: 2069426386}
+  - {fileID: 559879371}
