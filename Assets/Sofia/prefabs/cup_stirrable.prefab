@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6392188165970512966
 Transform:
   m_ObjectHideFlags: 0
@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 4641039888124723413}
   m_Layer: 0
   m_Name: cup_stirrable
-  m_TagString: Untagged
+  m_TagString: Cup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -406,8 +406,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.010312219, y: 0.0073491465, z: 0.0024324404}
-  m_Center: {x: -0.00022895103, y: 0.0010590717, z: -0.008783785}
+  m_Size: {x: 0.010312219, y: 0.008439127, z: 0.007276083}
+  m_Center: {x: -0.00022895103, y: 0.00051408075, z: -0.006361961}
 --- !u!1 &5538529841137751729
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,8 +420,9 @@ GameObject:
   - component: {fileID: 9082049154738075128}
   - component: {fileID: 698118393487884374}
   - component: {fileID: 8911256453159488977}
+  - component: {fileID: 1835339859061154036}
   m_Layer: 0
-  m_Name: glassDropDetect
+  m_Name: CollisionArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -489,9 +490,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CupRecipes:
   - {fileID: 11400000, guid: afd6cad338a956d4abf276eb7c5d59db, type: 2}
+  - {fileID: 11400000, guid: 02a624f606e93ce48980f634c57dc14b, type: 2}
   ShakerRecipes: []
   mixedAlcoholData: []
   drop: {fileID: 0}
   isMixed: 0
   isStirred: 0
   activeIngredient: 
+  ingredientUnit: 
+--- !u!114 &1835339859061154036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5538529841137751729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 389a9aacc113471478c7096dfad03726, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentDistance: 0
+  stirredDistance: 0

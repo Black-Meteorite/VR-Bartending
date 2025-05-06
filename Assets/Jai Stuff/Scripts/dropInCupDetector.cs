@@ -31,7 +31,11 @@ public class dropInCupDetector : MonoBehaviour
     {
         /*ingredients.Add("Gin", 60);
         ingredients.Add("DryVermouth", 30);*/
-    
+        ingredients.Add("Strawberry", 2);
+        ingredients.Add("Soju", 3);
+        ingredients.Add("Sprite", 3);
+        ingredients.Add("Calpico", 4);
+
     }
 
 
@@ -42,7 +46,7 @@ public class dropInCupDetector : MonoBehaviour
             string CraftedDrink;
             string CraftedIngredient;
             // Crafts drinks only in cups  
-            CraftedDrink = this.GetComponent<CraftingManager>().CraftDrink(ingredients, CupRecipes);
+            CraftedDrink = this.GetComponent<CraftingManager>().CraftDrink(ingredients, CupRecipes, isStirred);
             // Crafts iced/mixed drinks  
             CraftedIngredient = this.GetComponent<CraftingManager>().CraftIngredient(ingredients, ShakerRecipes, isMixed);
 

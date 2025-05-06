@@ -7,14 +7,19 @@ public class StirringDetector : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        stirredDistance = 4f;
+        stirredDistance = 10f;
         currentDistance = 0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(stirredDistance <= currentDistance)
+        {
+            //Tells cup that is stirred
+           
+            this.GetComponent<dropInCupDetector>().isStirred = true;
+        }
     }
 
     private void OnTriggerStay(Collider collision)

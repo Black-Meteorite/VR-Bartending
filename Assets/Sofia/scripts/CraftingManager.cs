@@ -16,11 +16,8 @@ public class CraftingManager : MonoBehaviour
     {
      
 
-        /*ingredients.Add("Strawberry", 2);
-      ingredients.Add("Soju", 3);
-      ingredients.Add("Sprite", 3);
-      ingredients.Add("Calpico", 4);
-      //ingredients.Add("isMixed", 1);*/
+
+      //ingredients.Add("isMixed", 1);
 
     }
 
@@ -31,13 +28,13 @@ public class CraftingManager : MonoBehaviour
        
     }
     //Craft Drinks for non mixable
-    public string CraftDrink(Dictionary<string, int> ingredients, List<RecipeSO> recipes)
+    public string CraftDrink(Dictionary<string, int> ingredients, List<RecipeSO> recipes, bool isStirred)
     {
         bool craftedDrink;
         //Looks through all the recipes
         foreach (var recipe in recipes)
         {
-            craftedDrink = isMatchingRecipe(ingredients, recipe);
+            craftedDrink = isMatchingRecipe(ingredients, recipe, isStirred);
             if (craftedDrink)
             {
                 return recipe.recipeName;
@@ -62,8 +59,14 @@ public class CraftingManager : MonoBehaviour
         // Ensure all code paths return a value  
         return null;
     }
-    private bool isMatchingRecipe(Dictionary<string, int> currentIngredients, RecipeSO recipe)
+    private bool isMatchingRecipe(Dictionary<string, int> currentIngredients, RecipeSO recipe, bool isStirred)
     {
+        //Checks if need stirring
+        if (recipe.isStirred != isStirred)
+        {
+            return false;
+        }
+
         //Compares current ingredient with current recipe
         if (currentIngredients.Count != recipe.ingredients.Count)
         {
