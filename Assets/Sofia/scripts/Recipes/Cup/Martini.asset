@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd06486d4ab1c3249a8bf9db999a9d31, type: 3}
   m_Name: Martini
   m_EditorClassIdentifier: 
-  recipeName: 
+  recipeName: Martini
   ingredients:
   - ingredientName: Martini
     amount: 90

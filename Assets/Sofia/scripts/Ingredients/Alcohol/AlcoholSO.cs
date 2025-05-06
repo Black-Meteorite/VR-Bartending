@@ -17,6 +17,7 @@ public class AlcoholSO : ScriptableObject
 
     public AlcoholType alcoholType;
     public Material dropColor;
-    public float dropValue;
+    public int dropValue;
+  
  
 }

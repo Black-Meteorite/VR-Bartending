@@ -12,6 +12,9 @@ TagManager:
   - Hand
   - Spoon
   - Drop
+  - Garnish
+  - Cup
+  - Ice
   layers:
   - Default
   - TransparentFX

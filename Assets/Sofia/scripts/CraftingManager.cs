@@ -31,7 +31,7 @@ public class CraftingManager : MonoBehaviour
        
     }
     //Craft Drinks for non mixable
-    public string CraftDrink(Dictionary<string, float> ingredients, List<RecipeSO> recipes)
+    public string CraftDrink(Dictionary<string, int> ingredients, List<RecipeSO> recipes)
     {
         bool craftedDrink;
         //Looks through all the recipes
@@ -45,7 +45,7 @@ public class CraftingManager : MonoBehaviour
         }
         return null;
     }
-    public string CraftDrink(Dictionary<string, float> ingredients, List<MixableRecipeSO> recipes, bool isMixed)
+    public string CraftIngredient(Dictionary<string, int> ingredients, List<MixableRecipeSO> recipes, bool isMixed)
     {
         bool mixedDrink;
         // Looks through all the recipes  
@@ -62,7 +62,7 @@ public class CraftingManager : MonoBehaviour
         // Ensure all code paths return a value  
         return null;
     }
-    private bool isMatchingRecipe(Dictionary<string, float> currentIngredients, RecipeSO recipe)
+    private bool isMatchingRecipe(Dictionary<string, int> currentIngredients, RecipeSO recipe)
     {
         //Compares current ingredient with current recipe
         if (currentIngredients.Count != recipe.ingredients.Count)
@@ -84,7 +84,7 @@ public class CraftingManager : MonoBehaviour
         return true;
     }
 
-    private bool isMatchingRecipe(Dictionary<string, float> currentIngredients, MixableRecipeSO recipe)
+    private bool isMatchingRecipe(Dictionary<string, int> currentIngredients, MixableRecipeSO recipe)
     {
         //Compares current ingredient with current recipe
         if (currentIngredients.Count != recipe.ingredients.Count)
