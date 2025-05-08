@@ -27,7 +27,7 @@ public class StirringDetector : MonoBehaviour
 
         if (collision.transform.tag.Equals("Spoon"))
         {
-            Debug.Log("current stirring distance:" + currentDistance);
+            //Debug.Log("current stirring distance:" + currentDistance);
  
             currentDistance += Vector3.Distance(transform.position, collision.transform.position);
 
