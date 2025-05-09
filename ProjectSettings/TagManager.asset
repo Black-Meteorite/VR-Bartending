@@ -15,6 +15,7 @@ TagManager:
   - Garnish
   - Cup
   - Ice
+  - PURGE
   layers:
   - Default
   - TransparentFX
