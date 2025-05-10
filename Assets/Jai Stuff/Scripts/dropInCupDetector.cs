@@ -42,10 +42,10 @@ public class dropInCupDetector : MonoBehaviour
 
     void Start()
     {
-        // Initialize the dictionary with some ingredients
-        ingredients.Add("DryVermouth", new IngredientData(30, "Alcohol"));
+        // Sample ingredients
+        /*ingredients.Add("DryVermouth", new IngredientData(30, "Alcohol"));
         ingredients.Add("Gin", new IngredientData(60, "Alcohol"));
-        ingredients.Add("Ice", new IngredientData(1, "Ice"));
+        ingredients.Add("Ice", new IngredientData(1, "Ice"));*/
     }
 
     void Update()
@@ -88,7 +88,7 @@ public class dropInCupDetector : MonoBehaviour
         {
             string alcoholType = collision.GetComponent<AlcoholController>().alcoholType.ToString();
             int dropValue = collision.GetComponent<AlcoholController>().dropValue;
-
+            //Increments current amount if found
             if (!ingredients.ContainsKey(alcoholType))
             {
                 ingredients.Add(alcoholType, new IngredientData(dropValue, "Alcohol"));
@@ -128,6 +128,7 @@ public class dropInCupDetector : MonoBehaviour
 
         if (collision.transform.tag.Equals("Ice"))
         {
+            FindFirstObjectByType<AudioManager>().Play("Scoop Ice");
             if (!ingredients.ContainsKey("Ice"))
             {
                 ingredients.Add("Ice", new IngredientData(1, "Ice"));
@@ -139,7 +140,7 @@ public class dropInCupDetector : MonoBehaviour
             }
             currentActiveIngredient.name = "Ice";
             currentActiveIngredient.type = "Ice";
-            Destroy(collision.gameObject);
+            collision.gameObject.SetActive(false);
         }
 
         if (collision.transform.tag.Equals("PURGE"))

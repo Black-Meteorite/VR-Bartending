@@ -16,6 +16,7 @@ TagManager:
   - Cup
   - Ice
   - PURGE
+  - Ice Box
   layers:
   - Default
   - TransparentFX
