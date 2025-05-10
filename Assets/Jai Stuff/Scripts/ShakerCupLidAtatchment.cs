@@ -1,53 +1,48 @@
 using UnityEngine;
-
+using UnityEngine.InputSystem;
 
 public class ShakerCupSnap : MonoBehaviour
 {
     public Transform lid;
     public Transform snapPoint;
-    private UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable lidGrab;
-    private Rigidbody lidRb;
 
+    private Rigidbody lidRb;
     private bool lidSnapped = false;
 
     void Start()
     {
-        if (lid != null)
-        {
-            lidGrab = lid.GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>();
-            lidRb = lid.GetComponent<Rigidbody>();
-        }
+        lidRb = lid.GetComponent<Rigidbody>();
     }
+
+    void Update()
+{
+    if (lidSnapped && Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
+    {
+        lid.SetParent(null);
+        lidRb.isKinematic = false;
+        lidRb.useGravity = true;
+        lidSnapped = false;
+
+        // 🔼 Teleport the lid 5 meters upward
+        lid.position += Vector3.up * 2f;
+
+        Debug.Log("Lid released and teleported up.");
+    }
+}
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!lidSnapped && other.transform == lid)
+        if (!lidSnapped && other.gameObject == lid.gameObject)
         {
-            lidOn();
+            lid.position = snapPoint.position;
+            lid.rotation = snapPoint.rotation;
+            lid.SetParent(transform);
+
+            lidRb.isKinematic = true;
+            lidRb.useGravity = false;
+
+            lidSnapped = true;
+            Debug.Log("Lid snapped.");
         }
-    }
-
-    void lidOn()
-    {
-        lid.position = snapPoint.position;
-        lid.rotation = snapPoint.rotation;
-
-        lidRb.isKinematic = true;
-        lidRb.useGravity = false;
-
-        lidGrab.enabled = false;
-
-        lidSnapped = true;
-
-        lid.SetParent(transform);
-    }
-
-    public void ReleaseLid()
-    {
-        lidRb.isKinematic = false;
-        lidRb.useGravity = true;
-        lidGrab.enabled = true;
-        lidSnapped = false;
-        lid.SetParent(null);
     }
 }

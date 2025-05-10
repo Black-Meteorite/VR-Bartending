@@ -9,14 +9,28 @@ using static GarnishSO;
 
 public class dropInCupDetector : MonoBehaviour
 {
-    public Dictionary<string, int> ingredients = new Dictionary<string, int>();
+    // Define a struct to store ingredient amount and type
+    public struct IngredientData
+    {
+        public int amount;
+        public string type;
+
+        public IngredientData(int amount, string type)
+        {
+            this.amount = amount;
+            this.type = type;
+        }
+    }
+
+    // Update the dictionary to use IngredientData as the value
+    public Dictionary<string, IngredientData> ingredients = new Dictionary<string, IngredientData>();
     public List<RecipeSO> CupRecipes = new List<RecipeSO>();
     public List<MixableRecipeSO> ShakerRecipes = new List<MixableRecipeSO>();
     public List<AlcoholSO> mixedAlcoholData = new List<AlcoholSO>();
     public GameObject drop;
     public bool isMixed;
     public bool isStirred;
-    public activeIngredient currentActiveIngredient; 
+    public activeIngredient currentActiveIngredient;
 
     public struct activeIngredient
     {
@@ -28,10 +42,10 @@ public class dropInCupDetector : MonoBehaviour
 
     void Start()
     {
-        ingredients.Add("Strawberry", 2);
-        ingredients.Add("Soju", 3);
-        ingredients.Add("Sprite", 3);
-        ingredients.Add("Calpico", 4);
+        // Initialize the dictionary with some ingredients
+        ingredients.Add("DryVermouth", new IngredientData(30, "Alcohol"));
+        ingredients.Add("Gin", new IngredientData(60, "Alcohol"));
+        ingredients.Add("Ice", new IngredientData(1, "Ice"));
     }
 
     void Update()
@@ -77,11 +91,12 @@ public class dropInCupDetector : MonoBehaviour
 
             if (!ingredients.ContainsKey(alcoholType))
             {
-                ingredients.Add(alcoholType, dropValue);
+                ingredients.Add(alcoholType, new IngredientData(dropValue, "Alcohol"));
             }
             else
             {
-                ingredients[alcoholType] += dropValue;
+                var existingData = ingredients[alcoholType];
+                ingredients[alcoholType] = new IngredientData(existingData.amount + dropValue, "Alcohol");
             }
 
             currentActiveIngredient.name = alcoholType;
@@ -97,11 +112,12 @@ public class dropInCupDetector : MonoBehaviour
 
             if (!ingredients.ContainsKey(garnishType))
             {
-                ingredients.Add(garnishType, garnishValue);
+                ingredients.Add(garnishType, new IngredientData(garnishValue, "Garnish"));
             }
             else
             {
-                ingredients[garnishType] += garnishValue;
+                var existingData = ingredients[garnishType];
+                ingredients[garnishType] = new IngredientData(existingData.amount + garnishValue, "Garnish");
             }
 
             currentActiveIngredient.name = garnishType;
@@ -114,14 +130,22 @@ public class dropInCupDetector : MonoBehaviour
         {
             if (!ingredients.ContainsKey("Ice"))
             {
-                ingredients.Add("Ice", 1);
+                ingredients.Add("Ice", new IngredientData(1, "Ice"));
             }
             else
             {
-                ingredients["Ice"] += 1;
+                var existingData = ingredients["Ice"];
+                ingredients["Ice"] = new IngredientData(existingData.amount + 1, "Ice");
             }
             currentActiveIngredient.name = "Ice";
             currentActiveIngredient.type = "Ice";
+            Destroy(collision.gameObject);
+        }
+
+        if (collision.transform.tag.Equals("PURGE"))
+        {
+            ingredients.Clear();
+
             Destroy(collision.gameObject);
         }
     }
@@ -138,4 +162,3 @@ public class dropInCupDetector : MonoBehaviour
         return null;
     }
 }
-

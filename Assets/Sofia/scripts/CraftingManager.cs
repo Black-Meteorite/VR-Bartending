@@ -1,116 +1,100 @@
 using System.Collections.Generic;
-using System.Collections;
 using UnityEngine;
 using static AlcoholSO;
-using System;
-using static UnityEngine.EventSystems.EventTrigger;
-using System.Runtime.CompilerServices;
 
 public class CraftingManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-
-
-
     void Start()
     {
-     
-
-
-      //ingredients.Add("isMixed", 1);
-
+        // Initialization logic if needed
     }
 
-    // Update is called once per frame
     void Update()
-    {   
-      
-       
+    {
+        // Update logic if needed
     }
-    //Craft Drinks for non mixable
-    public string CraftDrink(Dictionary<string, int> ingredients, List<RecipeSO> recipes, bool isStirred)
+
+    // Craft Drinks for non-mixable recipes
+    public string CraftDrink(Dictionary<string, dropInCupDetector.IngredientData> ingredients, List<RecipeSO> recipes, bool isStirred)
     {
         bool craftedDrink;
-        //Looks through all the recipes
+
+        // Looks through all the recipes
         foreach (var recipe in recipes)
         {
             craftedDrink = isMatchingRecipe(ingredients, recipe, isStirred);
             if (craftedDrink)
             {
-                //Spawns drink
+                // Spawns drink
                 FindFirstObjectByType<DrinkManager>().SpawnDrink(recipe.recipeName);
                 return recipe.recipeName;
-
             }
         }
         return null;
     }
-    public string CraftIngredient(Dictionary<string, int> ingredients, List<MixableRecipeSO> recipes, bool isMixed)
+
+    // Craft Ingredients for mixable recipes
+    public string CraftIngredient(Dictionary<string, dropInCupDetector.IngredientData> ingredients, List<MixableRecipeSO> recipes, bool isMixed)
     {
         bool mixedDrink;
-        // Looks through all the recipes  
+
+        // Looks through all the recipes
         foreach (var recipe in recipes)
         {
             mixedDrink = isMatchingRecipe(ingredients, recipe);
             if (mixedDrink && isMixed)
             {
-                // Debug.Log($"Mixed: {recipe.resultIngredient.ingredientName} ");  
                 return recipe.resultIngredient.ingredientName;
-                
             }
         }
 
-        // Ensure all code paths return a value  
+        // Ensure all code paths return a value
         return null;
     }
-    private bool isMatchingRecipe(Dictionary<string, int> currentIngredients, RecipeSO recipe, bool isStirred)
+
+    private bool isMatchingRecipe(Dictionary<string, dropInCupDetector.IngredientData> currentIngredients, RecipeSO recipe, bool isStirred)
     {
-        //Checks if need stirring
+        // Checks if the recipe requires stirring
         if (recipe.isStirred != isStirred)
         {
             return false;
         }
 
-        //Compares current ingredient with current recipe
+        // Compares current ingredients with the recipe
         if (currentIngredients.Count != recipe.ingredients.Count)
         {
-            //Debug.Log("count not match");
             return false;
         }
 
         foreach (var ingredient in recipe.ingredients)
         {
             if (!currentIngredients.ContainsKey(ingredient.ingredientName) ||
-                currentIngredients[ingredient.ingredientName] != ingredient.amount)
+                currentIngredients[ingredient.ingredientName].amount != ingredient.amount)
             {
-               // Debug.Log("missing an ingredient or amount");
-                return false; //Missing ingredient or incorrect amount
+                return false; // Missing ingredient or incorrect amount
             }
         }
 
         return true;
     }
 
-    private bool isMatchingRecipe(Dictionary<string, int> currentIngredients, MixableRecipeSO recipe)
+    private bool isMatchingRecipe(Dictionary<string, dropInCupDetector.IngredientData> currentIngredients, MixableRecipeSO recipe)
     {
-        //Compares current ingredient with current recipe
+        // Compares current ingredients with the recipe
         if (currentIngredients.Count != recipe.ingredients.Count)
         {
-            //Debug.Log("count not match");
             return false;
         }
 
         foreach (var ingredient in recipe.ingredients)
         {
             if (!currentIngredients.ContainsKey(ingredient.ingredientName) ||
-                currentIngredients[ingredient.ingredientName] != ingredient.amount)
+                currentIngredients[ingredient.ingredientName].amount != ingredient.amount)
             {
-               // Debug.Log("missing an ingredient or amount");
-                return false; //Missing ingredient or incorrect amount
+                return false; // Missing ingredient or incorrect amount
             }
         }
 
         return true;
     }
-
 }
