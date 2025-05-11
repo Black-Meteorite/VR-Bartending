@@ -43,8 +43,9 @@ public class dropInCupDetector : MonoBehaviour
     void Start()
     {
         // Sample ingredients
-        /*ingredients.Add("DryVermouth", new IngredientData(30, "Alcohol"));
-        ingredients.Add("Gin", new IngredientData(60, "Alcohol"));
+        /*ingredients.Add("Tequila", new IngredientData(50, "Alcohol"));
+        ingredients.Add("CranberryJuice", new IngredientData(10, "CranberryJuice"));
+        ingredients.Add("OrangeJuice", new IngredientData(100, "Alcohol"));
         ingredients.Add("Ice", new IngredientData(1, "Ice"));*/
     }
 
@@ -84,6 +85,12 @@ public class dropInCupDetector : MonoBehaviour
 
     void OnTriggerEnter(Collider collision)
     {
+        //If lid on then no pouring allow
+        if(collision.transform.tag.Equals("Lid"))
+        {
+            return;
+        }
+
         if (collision.transform.tag.Equals("Drop"))
         {
             string alcoholType = collision.GetComponent<AlcoholController>().alcoholType.ToString();

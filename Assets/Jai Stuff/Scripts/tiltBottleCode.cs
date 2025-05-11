@@ -2,12 +2,8 @@ using UnityEngine;
 
 public class tiltBottleCode : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
+  
+    public bool isLidOn;
     public Material dropColor;
     public GameObject dropPrefab;
 
@@ -22,10 +18,16 @@ public class tiltBottleCode : MonoBehaviour
     public float dropOffset = 0.2f;
 
     private float lastDropTime = 0f;
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        
+    }
     void Update()
     {
 
-        if (dropPrefab != null)
+        if (dropPrefab != null && !isLidOn)
         {
             TriggerPouring();
         }
@@ -75,7 +77,7 @@ public class tiltBottleCode : MonoBehaviour
             Renderer dropRenderer = drop.GetComponent<Renderer>();
             if (dropRenderer != null)
             {
-               // dropRenderer.material = dropColor;
+               dropRenderer.material = dropColor;
             }
         }
 
@@ -91,5 +93,13 @@ public class tiltBottleCode : MonoBehaviour
 
         // Destroys drop after x seconds
         Destroy(drop, 3f);
+    }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if(collision.transform.Equals("Lid"))
+        {
+            isLidOn = true;
+        }
     }
 }

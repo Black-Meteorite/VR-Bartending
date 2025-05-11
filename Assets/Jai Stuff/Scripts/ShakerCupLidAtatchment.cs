@@ -23,10 +23,10 @@ public class ShakerCupSnap : MonoBehaviour
         lidRb.useGravity = true;
         lidSnapped = false;
 
-        // 🔼 Teleport the lid 5 meters upward
-        lid.position += Vector3.up * 2f;
+        // 🔼 Teleport the lid 0.5 meters on the right
+        lid.position += Vector3.right * 0.5f;
 
-        Debug.Log("Lid released and teleported up.");
+        Debug.Log("Lid released and teleported on the right.");
     }
 }
 

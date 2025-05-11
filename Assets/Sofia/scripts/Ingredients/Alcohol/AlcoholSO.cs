@@ -6,13 +6,20 @@ public class AlcoholSO : ScriptableObject
 {
     public enum AlcoholType
     {
-        Soju,
+        MangoSoju,
         Whiskey,
         Vodka,
         Wine,
         DryVermouth,
         Gin, 
-        Martini
+        OrangeJuice,
+        Tequila,
+        CranberryJuice,
+        LemonSoda,
+        GrapefruitSoda,
+        Martini,
+        TequilaSunrise
+
     }
 
     public AlcoholType alcoholType;

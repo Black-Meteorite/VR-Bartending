@@ -17,6 +17,7 @@ TagManager:
   - Ice
   - PURGE
   - Ice Box
+  - Lid
   layers:
   - Default
   - TransparentFX

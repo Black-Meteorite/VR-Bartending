@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alcoholType: 3
   dropColor: {fileID: 2100000, guid: b77bb4ded67987d48ba985fca0c0e692, type: 2}
-  dropValue: 1
+  dropValue: 10

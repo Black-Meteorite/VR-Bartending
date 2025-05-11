@@ -53,6 +53,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9046430611424990339, guid: 6d61e22912d748f4eb716a350431b7ea, type: 3}
+      propertyPath: dropValue
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 9046430611424990339, guid: 6d61e22912d748f4eb716a350431b7ea, type: 3}
       propertyPath: alcoholData
       value: 
       objectReference: {fileID: 11400000, guid: 2f68f65ab25b36442bb6a4e400e5ed32, type: 2}

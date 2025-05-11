@@ -52,7 +52,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8364253093495083511
 Transform:
   m_ObjectHideFlags: 0
@@ -62,7 +62,7 @@ Transform:
   m_GameObject: {fileID: 1788274341550534807}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0, y: 2.2, z: 2.94}
+  m_LocalPosition: {x: -0, y: 5.3, z: 2.78}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -410,7 +410,7 @@ Transform:
   m_GameObject: {fileID: 5052144905234002522}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0, y: 0, z: 2.93}
+  m_LocalPosition: {x: 0.06, y: -0.03, z: 2.93}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -490,8 +490,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.01993565, y: 0.020961579, z: 0.014924994}
-  m_Center: {x: 0, y: 2.286983e-17, z: -0.0025374573}
+  m_Size: {x: 0.01993565, y: 0.020291796, z: 0.014924994}
+  m_Center: {x: 0, y: -0.00033489018, z: -0.0025374577}
 --- !u!65 &2798348622824592823
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -511,8 +511,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.016480533, y: 0.014981022, z: 0.010042977}
-  m_Center: {x: -0.000013656914, y: 0.00021863206, z: 0.0015715327}
+  m_Size: {x: 0.016480533, y: 0.015015079, z: 0.0023598403}
+  m_Center: {x: -0.000013656914, y: 0.00023566262, z: 0.0047722394}
 --- !u!54 &8862217036246476124
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -691,8 +691,10 @@ MonoBehaviour:
   CupRecipes: []
   ShakerRecipes:
   - {fileID: 11400000, guid: a387dc62801818d44a24ce87dfe81d5c, type: 2}
+  - {fileID: 11400000, guid: 5aa3f8c1f22405340b26cc42f4f2bf8f, type: 2}
   mixedAlcoholData:
   - {fileID: 11400000, guid: d9ed3edcebeb2c44dac957c266599a9c, type: 2}
+  - {fileID: 11400000, guid: b4c896850c5b747449ad062e3039c6ff, type: 2}
   drop: {fileID: 6579018313996928872, guid: 6d61e22912d748f4eb716a350431b7ea, type: 3}
   isMixed: 0
   isStirred: 0
@@ -725,6 +727,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bc7dd29ef1714a36b89bcf693befbf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLidOn: 0
   dropColor: {fileID: 0}
   dropPrefab: {fileID: 0}
   alchoholType: 

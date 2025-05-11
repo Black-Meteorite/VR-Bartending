@@ -10,7 +10,6 @@ public class CocktailShakerController : MonoBehaviour
     public float currentDistance;
     public float shakedDistance;
 
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created  
     void Start()
     {
@@ -22,9 +21,10 @@ public class CocktailShakerController : MonoBehaviour
     // Update is called once per frame  
     void Update()
     {
-       
-         AddDistancesTraveled();
-        
+        if (currentDistance != transform.position.y)   
+        {
+            AddDistancesTraveled();
+        }
     }
 
     private void AddDistancesTraveled()
@@ -32,6 +32,7 @@ public class CocktailShakerController : MonoBehaviour
         endingPositions = transform.position;
         currentDistance += Vector3.Distance(startingPositions, endingPositions);
         startingPositions = endingPositions;
+        //FindFirstObjectByType<AudioManager>().Play("Shaking");  
         if (currentDistance >= shakedDistance)
         {
             this.GetComponent<dropInCupDetector>().isMixed = true;
