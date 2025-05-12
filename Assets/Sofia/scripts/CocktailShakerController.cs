@@ -16,7 +16,7 @@ public class CocktailShakerController : MonoBehaviour
         shakedDistance = 10f;
         currentDistance = 0f;
         startingPositions = transform.position;
-        canShake = true;
+        canShake = false;
     }
 
     // Update is called once per frame  

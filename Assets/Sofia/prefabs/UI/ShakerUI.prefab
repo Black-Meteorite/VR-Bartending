@@ -771,6 +771,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fillBar: {fileID: 6180655019028736377}
   shaker: {fileID: 0}
+  header: {fileID: 8311659972223277486}
   fillImage: {fileID: 6263449426615848930}
 --- !u!1 &5915117857659049019
 GameObject:

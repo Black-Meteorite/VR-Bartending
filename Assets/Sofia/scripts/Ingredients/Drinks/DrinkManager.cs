@@ -30,11 +30,12 @@ public class DrinkManager : MonoBehaviour
 
         // Spawns the game object  
         GameObject drinkPrefab = Instantiate(drink.drink, spawnPosition, Quaternion.Euler(-90, 0, 0));
-
-        Transform liquidTransform = drinkPrefab.transform.Find("Liquid");
-        if (liquidTransform != null)
+        //Finds children to customize drink
+        GameObject liquid = drinkPrefab.transform.Find("Liquid").gameObject;
+        GameObject straw = drinkPrefab.transform.Find("Straw").gameObject;
+        GameObject lemon = drinkPrefab.transform.Find("Lemon").gameObject;
+        if (liquid != null)
         {
-            GameObject liquid = liquidTransform.gameObject;
             
             Renderer renderer = liquid.GetComponent<Renderer>();
             if (renderer != null)
@@ -42,5 +43,17 @@ public class DrinkManager : MonoBehaviour
                 renderer.material = drink.liquidColor;
             }
         }
+        //Makes straw disappear 
+        if (straw != null && !drink.hasStraw)
+        {
+            straw.SetActive(false);
+        }
+
+        //Makes lemon disappear 
+        if (lemon != null && !drink.hasLemon)
+        {
+            lemon.SetActive(false);
+        }
+
     }
 }

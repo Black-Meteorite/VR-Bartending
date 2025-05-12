@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bc7dd29ef1714a36b89bcf693befbf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLidOn: 0
   dropColor: {fileID: 2100000, guid: 6798819b1021c4fe5993e67786abf37f, type: 2}
   dropPrefab: {fileID: 0}
   alchoholType: Sprite

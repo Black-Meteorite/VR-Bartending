@@ -15,7 +15,7 @@ public class CraftingManager : MonoBehaviour
     }
 
     // Craft Drinks for non-mixable recipes
-    public string CraftDrink(Dictionary<string, dropInCupDetector.IngredientData> ingredients, List<RecipeSO> recipes, bool isStirred)
+    public string CraftDrink(Dictionary<string, dropInCupDetector.IngredientData> ingredients, List<RecipeSO> recipes)
     {
         bool craftedDrink = false;
 
@@ -23,14 +23,14 @@ public class CraftingManager : MonoBehaviour
         foreach (var recipe in recipes)
         {
             //Determines if drink needs to be stirred
-            craftedDrink = isMatchingRecipe(ingredients, recipe, isStirred);
+            craftedDrink = isMatchingRecipe(ingredients, recipe);
             
            
             if (craftedDrink)
             {
                 // Spawns drink
                
-                FindFirstObjectByType<DrinkManager>().SpawnDrink(recipe.recipeName);
+                
                 return recipe.recipeName;
             }
         }
@@ -38,7 +38,7 @@ public class CraftingManager : MonoBehaviour
     }
 
     // Craft Ingredients for mixable recipes
-    public string CraftIngredient(Dictionary<string, dropInCupDetector.IngredientData> ingredients, List<MixableRecipeSO> recipes, bool isMixed)
+    public string CraftIngredient(Dictionary<string, dropInCupDetector.IngredientData> ingredients, List<MixableRecipeSO> recipes)
     {
         bool mixedDrink;
 
@@ -46,7 +46,7 @@ public class CraftingManager : MonoBehaviour
         foreach (var recipe in recipes)
         {
             mixedDrink = isMatchingRecipe(ingredients, recipe);
-            if (mixedDrink && isMixed)
+            if (mixedDrink)
             {
                 return recipe.resultIngredient.ingredientName;
             }
@@ -56,13 +56,9 @@ public class CraftingManager : MonoBehaviour
         return null;
     }
 
-    private bool isMatchingRecipe(Dictionary<string, dropInCupDetector.IngredientData> currentIngredients, RecipeSO recipe, bool isStirred)
+    private bool isMatchingRecipe(Dictionary<string, dropInCupDetector.IngredientData> currentIngredients, RecipeSO recipe)
     {
-        // Checks if the recipe requires stirring
-        if (recipe.isStirred != isStirred)
-        {
-            return false;
-        }
+       
 
         // Compares current ingredients with the recipe
         if (currentIngredients.Count != recipe.ingredients.Count)
@@ -101,4 +97,6 @@ public class CraftingManager : MonoBehaviour
 
         return true;
     }
+
+
 }

@@ -10,7 +10,7 @@ public class StirringDetector : MonoBehaviour
     {
         stirredDistance = 10f;
         currentDistance = 0f;
-        canStir = true;
+        canStir = false;
     }
 
     // Update is called once per frame

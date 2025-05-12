@@ -28,7 +28,24 @@ public class IngredientsInCupUI : MonoBehaviour
 
     void Start()
     {
-        
+        var detector = cupDetectionArea.GetComponent<dropInCupDetector>();
+        if (detector == null)
+        {
+            return;
+        }
+
+        foreach (var item in detector.ingredients)
+        {
+            string units = item.Value.type switch
+            {
+                "Alcohol" => "ML",
+                "Garnish" => "Slice",
+                "Ice" => "Portion",
+                _ => ""
+            };
+
+            ingredientsText.GetComponent<TextMeshProUGUI>().text += $"{item.Key}: {item.Value.amount} {units}\n";
+        }
     }
 
     void Update()

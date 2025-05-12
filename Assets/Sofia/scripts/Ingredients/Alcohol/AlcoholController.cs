@@ -19,4 +19,9 @@ public class AlcoholController : MonoBehaviour
     {
         
     }
+
+    public void Method()
+    {
+        throw new System.NotImplementedException();
+    }
 }

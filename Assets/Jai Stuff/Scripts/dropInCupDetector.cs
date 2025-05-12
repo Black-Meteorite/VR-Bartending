@@ -27,7 +27,8 @@ public class dropInCupDetector : MonoBehaviour
     public List<RecipeSO> CupRecipes = new List<RecipeSO>();
     public List<MixableRecipeSO> ShakerRecipes = new List<MixableRecipeSO>();
     public List<AlcoholSO> mixedAlcoholData = new List<AlcoholSO>();
- 
+    public string CraftedDrink;
+    public string CraftedIngredient;
     public GameObject drop;
     int dropCount;
     public bool isMixed;
@@ -35,7 +36,7 @@ public class dropInCupDetector : MonoBehaviour
     public activeIngredient currentActiveIngredient;
 
     public bool canRegisterDrop = true;
-    public float delayBeforeRegistering = 0.5f; // Delay in seconds
+    public float delayBeforeRegistering = 0.8f; // Delay in seconds
 
     public struct activeIngredient
     {
@@ -45,13 +46,18 @@ public class dropInCupDetector : MonoBehaviour
 
     public string ingredientUnit;
 
-    void Start()
+    private void Awake()
     {
         // Sample ingredients
-        ingredients.Add("Tequila", new IngredientData(50, "Alcohol"));
-        ingredients.Add("CranberryJuice", new IngredientData(10, "CranberryJuice"));
+        /*ingredients.Add("Tequila", new IngredientData(50, "Alcohol"));
+        
         ingredients.Add("OrangeJuice", new IngredientData(100, "Alcohol"));
-        ingredients.Add("Ice", new IngredientData(1, "Ice"));
+        ingredients.Add("CranberryJuice", new IngredientData(10, "Alcohol"));
+        ingredients.Add("Ice", new IngredientData(1, "Ice"));*/
+    }
+    void Start()
+    {
+        
     }
 
     void Update()
@@ -59,42 +65,58 @@ public class dropInCupDetector : MonoBehaviour
         //Calls the CraftingManager
         if (ingredients.Count > 0)
         {
-            string CraftedDrink;
-            string CraftedIngredient;
+       
 
-            CraftedDrink = FindFirstObjectByType<CraftingManager>().CraftDrink(ingredients, CupRecipes, isStirred);
-            CraftedIngredient = FindAnyObjectByType<CraftingManager>().CraftIngredient(ingredients, ShakerRecipes, isMixed);
+            CraftedDrink = FindFirstObjectByType<CraftingManager>().CraftDrink(ingredients, CupRecipes);
+            CraftedIngredient = FindAnyObjectByType<CraftingManager>().CraftIngredient(ingredients, ShakerRecipes);
 
             if (CraftedIngredient != null)
             {
+                this.GetComponent<CocktailShakerController>().canShake = true;
                 //Prints alcohol crafted
                 AlcoholSO alcoholSO = getAlcoholSO(CraftedIngredient);
-                if (alcoholSO != null)
+                if (alcoholSO != null && isMixed)
                 {
                     GameObject mixedDrop = Instantiate(drop);
                     this.GetComponent<tiltBottleCode>().dropPrefab = mixedDrop;
                     mixedDrop.GetComponent<AlcoholController>().alcoholData = alcoholSO;
                     mixedDrop.name = CraftedIngredient + "Drop";
                     Debug.Log(mixedDrop.name);
+
+                    ingredients.Clear();
+                    CraftedIngredient = null;
+                   // this.GetComponent<CocktailShakerController>().currentDistance = 0;
+                    this.GetComponent<CocktailShakerController>().canShake = false;
                 }
-                CraftedIngredient = null;
+           
                 //Resets the shakers distance
-                this.GetComponent<CocktailShakerController>().currentDistance = 0;
-                this.GetComponent<CocktailShakerController>().canShake = false;
-                ingredients.Clear();
+                
+                
+
+                
             }
 
             if (CraftedDrink != null)
             {
-                Debug.Log($"CraftedDrink: {CraftedDrink}");
+                //Debug.Log($"CraftedDrink: {CraftedDrink}");
                 //Resets to no drink crafted by cup
-                CraftedDrink = null;
-                
-                //Resets Stirring distance
-                //this.GetComponent<StirringDetector>().currentDistance = 0;
-                //this.GetComponent<StirringDetector>().canStir = true;
+     
+                this.GetComponent<StirringDetector>().canStir = true;
 
-                ingredients.Clear();
+                //Checks if the recipe needs stirring
+                bool recipeIsStirred = GetRecipeSO(CraftedDrink).isStirred;
+                if (isStirred == recipeIsStirred)
+                {
+                    //End of crafting drink sequence
+                    FindFirstObjectByType<DrinkManager>().SpawnDrink(CraftedDrink);
+                    ingredients.Clear();
+                    CraftedDrink = null;
+
+                    //Resets Stirring distance
+                    //this.GetComponent<StirringDetector>().currentDistance = 0;
+                    this.GetComponent<StirringDetector>().canStir = false;
+                }
+
             }
         }
     }
@@ -179,21 +201,29 @@ public class dropInCupDetector : MonoBehaviour
             collision.gameObject.SetActive(false);
         }
 
+        //RESETS THE CUP
         if (collision.transform.tag.Equals("PURGE"))
         {
             ingredients.Clear();
+            if (this.GetComponent<CocktailShakerController>())
+            {
+                //Resets the shakers distance and removes drop abilities
+                this.GetComponent<CocktailShakerController>().currentDistance = 0;
+                this.GetComponent<CocktailShakerController>().canShake = false;
+                this.GetComponent<tiltBottleCode>().dropPrefab = null;
+            }
+
+            if (this.GetComponent<StirringDetector>())
+            {
+                //Resets Stirring distance
+                this.GetComponent<StirringDetector>().currentDistance = 0;
+                this.GetComponent<StirringDetector>().canStir = false;
+            }
 
             Destroy(collision.gameObject);
         }
     }
 
-    void OnTriggerExit(Collider collision)
-    {
-        if (collision.transform.tag.Equals("Drop"))
-        {
-            
-        }
-    }
 
     private AlcoholSO getAlcoholSO(string CraftedIngredient)
     {
@@ -204,6 +234,19 @@ public class dropInCupDetector : MonoBehaviour
                 return alcoholSO;
             }
         }
+        return null;
+    }
+
+    private RecipeSO GetRecipeSO(string CraftedRecipe)
+    {
+        foreach(RecipeSO recipe in CupRecipes)
+        {
+            if(recipe.recipeName.ToString().Equals(CraftedRecipe))
+            {
+                return recipe;
+            }
+        }
+
         return null;
     }
 

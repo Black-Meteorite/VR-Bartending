@@ -1319,6 +1319,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fillBar: {fileID: 7607044816159419326}
   cupDetector: {fileID: 0}
+  header: {fileID: 4131076438477125727}
   fillImage: {fileID: 2867822688584922695}
 --- !u!1 &7607044816159419326
 GameObject:
