@@ -43,16 +43,26 @@ public class RecipeManager : MonoBehaviour
 
         if(recipe == null && shakerRecipe == null)
         {
+
             Debug.LogError("Recipe not found: " + recipeName);
             recipeText.GetComponent<TextMeshProUGUI>().text = "Recipe not found.";
             return;
         }
-
-        recipeText.GetComponent<TextMeshProUGUI>().text += "Drop into the Shaker: \n";
-        foreach (var shakeIngredient in shakerRecipe.ingredients)
+        if (shakerRecipe != null)
         {
-            recipeText.GetComponent<TextMeshProUGUI>().text += $"{shakeIngredient.ingredientName}: {shakeIngredient.amount} \n";
-        }
+            recipeText.GetComponent<TextMeshProUGUI>().text += "Drop into the Shaker: \n";
+            foreach (var shakeIngredient in shakerRecipe.ingredients)
+            {
+                string units = shakeIngredient.type switch
+                {
+                    "Alcohol" => "ML",
+                    "Garnish" => "Slice",
+                    "Ice" => "Portion",
+                    _ => ""
+                };
+                recipeText.GetComponent<TextMeshProUGUI>().text += $"{shakeIngredient.ingredientName}: {shakeIngredient.amount} {units}\n";
+            }
+        };
 
         recipeText.GetComponent<TextMeshProUGUI>().text += "\n Then shake. \n \n";
 
@@ -60,7 +70,14 @@ public class RecipeManager : MonoBehaviour
         recipeText.GetComponent<TextMeshProUGUI>().text += "Drop into the Cup: \n";
         foreach (var ingredient in recipe.ingredients)
         {
-            recipeText.GetComponent<TextMeshProUGUI>().text += $"{ingredient.ingredientName}: {ingredient.amount} \n";
+            string units = ingredient.type switch
+            {
+                "Alcohol" => "ML",
+                "Garnish" => "Slice",
+                "Ice" => "Portion",
+                _ => ""
+            };
+            recipeText.GetComponent<TextMeshProUGUI>().text += $"{ingredient.ingredientName}: {ingredient.amount} {units}\n";
         }
     }  
 }

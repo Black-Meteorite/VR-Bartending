@@ -15,10 +15,14 @@ MonoBehaviour:
   ingredients:
   - ingredientName: DryVermouth
     amount: 30
+    type: Alcohol
   - ingredientName: Gin
     amount: 60
+    type: Alcohol
   - ingredientName: Ice
     amount: 1
+    type: Ice
   resultIngredient:
     ingredientName: Martini
     amount: 90
+    type: Alcohol

@@ -16,5 +16,6 @@ MonoBehaviour:
   ingredients:
   - ingredientName: TequilaSunrise
     amount: 160
-  isMixed: 1
-  isStirred: 1
+    type: Alcohol
+  isMixed: 0
+  isStirred: 0

@@ -4,11 +4,13 @@ public class StirringDetector : MonoBehaviour
 {
     public float currentDistance;
     public float stirredDistance;
+    public bool canStir;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        stirredDistance = 2f;
+        stirredDistance = 10f;
         currentDistance = 0f;
+        canStir = true;
     }
 
     // Update is called once per frame
@@ -25,7 +27,7 @@ public class StirringDetector : MonoBehaviour
     private void OnTriggerStay(Collider collision)
     {
 
-        if (collision.transform.tag.Equals("Spoon"))
+        if (collision.transform.tag.Equals("Spoon") && canStir)
         {
             //Debug.Log("current stirring distance:" + currentDistance);
  

@@ -24,19 +24,23 @@ public class DrinkManager : MonoBehaviour
 
     public void SpawnDrink(string name)
     {
+        FindFirstObjectByType<AudioManager>().Play("Success");
         // Finds the drink from the list  
         Drink drink = Array.Find(Drinks, drink => drink.name == name);
 
         // Spawns the game object  
-        GameObject drinkPrefab = Instantiate(drink.drink, spawnPosition, Quaternion.identity);
+        GameObject drinkPrefab = Instantiate(drink.drink, spawnPosition, Quaternion.Euler(-90, 0, 0));
 
-        
         Transform liquidTransform = drinkPrefab.transform.Find("Liquid");
         if (liquidTransform != null)
         {
             GameObject liquid = liquidTransform.gameObject;
-            //liquid.GetComponent<Material>().material = drink.
-            // Additional logic for 'liquid' can be added here if needed  
+            
+            Renderer renderer = liquid.GetComponent<Renderer>();
+            if (renderer != null)
+            {
+                renderer.material = drink.liquidColor;
+            }
         }
     }
 }

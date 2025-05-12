@@ -400,6 +400,8 @@ MonoBehaviour:
   drop: {fileID: 0}
   isMixed: 0
   isStirred: 0
+  canRegisterDrop: 1
+  delayBeforeRegistering: 3
   ingredientUnit: 
 --- !u!114 &5792400037971799732
 MonoBehaviour:
@@ -415,6 +417,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentDistance: 0
   stirredDistance: 0
+  canStir: 0
 --- !u!1 &3992143018865553678
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,6 +486,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentDistance: 0
   stirredDistance: 0
+  canStir: 0
 --- !u!1 &4193164910785794521
 GameObject:
   m_ObjectHideFlags: 0
@@ -19751,7 +19755,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1829
+  m_VersionIndex: 1874
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -19806,7 +19810,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c332e179ebec987488b68e59ab7740f4, type: 2}
+  - {fileID: 2100000, guid: dc082cd2ae389a143b8ff251f5d6c304, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -19855,7 +19859,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
 --- !u!1 &4407092724472270985

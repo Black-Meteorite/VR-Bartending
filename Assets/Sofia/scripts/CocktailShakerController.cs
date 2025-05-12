@@ -9,19 +9,20 @@ public class CocktailShakerController : MonoBehaviour
     public Vector3 endingPositions;
     public float currentDistance;
     public float shakedDistance;
-
+    public bool canShake;
     // Start is called once before the first execution of Update after the MonoBehaviour is created  
     void Start()
     {
         shakedDistance = 10f;
         currentDistance = 0f;
         startingPositions = transform.position;
+        canShake = true;
     }
 
     // Update is called once per frame  
     void Update()
     {
-        if (currentDistance != transform.position.y)   
+        if (currentDistance != transform.position.y && canShake)   
         {
             AddDistancesTraveled();
         }

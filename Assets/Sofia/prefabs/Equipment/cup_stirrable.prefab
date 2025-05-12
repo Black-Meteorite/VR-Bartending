@@ -68,6 +68,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentDistance: 0
   stirredDistance: 0
+  canStir: 0
 --- !u!1 &1250035836720459948
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,7 +264,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!114 &24804212175039048
 MonoBehaviour:
@@ -478,12 +479,14 @@ MonoBehaviour:
   CupRecipes:
   - {fileID: 11400000, guid: afd6cad338a956d4abf276eb7c5d59db, type: 2}
   - {fileID: 11400000, guid: 02a624f606e93ce48980f634c57dc14b, type: 2}
+  - {fileID: 11400000, guid: 61b8a7972102cc642939da6f5a1f2881, type: 2}
   ShakerRecipes: []
   mixedAlcoholData: []
   drop: {fileID: 0}
   isMixed: 0
   isStirred: 0
-  activeIngredient: 
+  canRegisterDrop: 1
+  delayBeforeRegistering: 0.5
   ingredientUnit: 
 --- !u!114 &1835339859061154036
 MonoBehaviour:
@@ -499,3 +502,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentDistance: 0
   stirredDistance: 0
+  canStir: 0

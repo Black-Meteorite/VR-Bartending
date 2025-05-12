@@ -28,7 +28,7 @@ public class IngredientsInCupUI : MonoBehaviour
 
     void Start()
     {
-        UpdateIngredientsDisplayed();
+        
     }
 
     void Update()

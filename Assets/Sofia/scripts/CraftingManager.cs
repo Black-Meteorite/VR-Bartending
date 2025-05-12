@@ -17,15 +17,19 @@ public class CraftingManager : MonoBehaviour
     // Craft Drinks for non-mixable recipes
     public string CraftDrink(Dictionary<string, dropInCupDetector.IngredientData> ingredients, List<RecipeSO> recipes, bool isStirred)
     {
-        bool craftedDrink;
+        bool craftedDrink = false;
 
         // Looks through all the recipes
         foreach (var recipe in recipes)
         {
+            //Determines if drink needs to be stirred
             craftedDrink = isMatchingRecipe(ingredients, recipe, isStirred);
+            
+           
             if (craftedDrink)
             {
                 // Spawns drink
+               
                 FindFirstObjectByType<DrinkManager>().SpawnDrink(recipe.recipeName);
                 return recipe.recipeName;
             }

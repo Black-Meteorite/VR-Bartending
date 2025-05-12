@@ -15,12 +15,17 @@ MonoBehaviour:
   ingredients:
   - ingredientName: Tequila
     amount: 50
+    type: Alcohol
   - ingredientName: OrangeJuice
     amount: 100
+    type: Alcohol
   - ingredientName: CranberryJuice
     amount: 10
+    type: Alcohol
   - ingredientName: Ice
     amount: 1
+    type: Ice
   resultIngredient:
     ingredientName: TequilaSunrise
     amount: 160
+    type: Alcohol

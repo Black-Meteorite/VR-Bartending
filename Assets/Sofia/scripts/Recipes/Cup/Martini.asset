@@ -16,7 +16,9 @@ MonoBehaviour:
   ingredients:
   - ingredientName: Martini
     amount: 90
+    type: Alcohol
   - ingredientName: Lemon
     amount: 1
+    type: Garnish
   isMixed: 0
   isStirred: 0

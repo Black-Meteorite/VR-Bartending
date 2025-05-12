@@ -27,10 +27,15 @@ public class dropInCupDetector : MonoBehaviour
     public List<RecipeSO> CupRecipes = new List<RecipeSO>();
     public List<MixableRecipeSO> ShakerRecipes = new List<MixableRecipeSO>();
     public List<AlcoholSO> mixedAlcoholData = new List<AlcoholSO>();
+ 
     public GameObject drop;
+    int dropCount;
     public bool isMixed;
     public bool isStirred;
     public activeIngredient currentActiveIngredient;
+
+    public bool canRegisterDrop = true;
+    public float delayBeforeRegistering = 0.5f; // Delay in seconds
 
     public struct activeIngredient
     {
@@ -43,14 +48,15 @@ public class dropInCupDetector : MonoBehaviour
     void Start()
     {
         // Sample ingredients
-        /*ingredients.Add("Tequila", new IngredientData(50, "Alcohol"));
+        ingredients.Add("Tequila", new IngredientData(50, "Alcohol"));
         ingredients.Add("CranberryJuice", new IngredientData(10, "CranberryJuice"));
         ingredients.Add("OrangeJuice", new IngredientData(100, "Alcohol"));
-        ingredients.Add("Ice", new IngredientData(1, "Ice"));*/
+        ingredients.Add("Ice", new IngredientData(1, "Ice"));
     }
 
     void Update()
     {
+        //Calls the CraftingManager
         if (ingredients.Count > 0)
         {
             string CraftedDrink;
@@ -61,6 +67,7 @@ public class dropInCupDetector : MonoBehaviour
 
             if (CraftedIngredient != null)
             {
+                //Prints alcohol crafted
                 AlcoholSO alcoholSO = getAlcoholSO(CraftedIngredient);
                 if (alcoholSO != null)
                 {
@@ -71,13 +78,22 @@ public class dropInCupDetector : MonoBehaviour
                     Debug.Log(mixedDrop.name);
                 }
                 CraftedIngredient = null;
+                //Resets the shakers distance
+                this.GetComponent<CocktailShakerController>().currentDistance = 0;
+                this.GetComponent<CocktailShakerController>().canShake = false;
                 ingredients.Clear();
             }
 
             if (CraftedDrink != null)
             {
                 Debug.Log($"CraftedDrink: {CraftedDrink}");
+                //Resets to no drink crafted by cup
                 CraftedDrink = null;
+                
+                //Resets Stirring distance
+                //this.GetComponent<StirringDetector>().currentDistance = 0;
+                //this.GetComponent<StirringDetector>().canStir = true;
+
                 ingredients.Clear();
             }
         }
@@ -85,14 +101,26 @@ public class dropInCupDetector : MonoBehaviour
 
     void OnTriggerEnter(Collider collision)
     {
+        // If the timer is active, ignore the drop
+        if (!canRegisterDrop && collision.transform.tag.Equals("Drop"))
+        {
+            Destroy(collision.gameObject);
+            return;
+        }
+
+        // Start the delay timer
+        StartCoroutine(DelayBeforeNextDrop(collision));
+
         //If lid on then no pouring allow
-        if(collision.transform.tag.Equals("Lid"))
+        if (collision.transform.tag.Equals("Lid"))
         {
             return;
         }
 
         if (collision.transform.tag.Equals("Drop"))
         {
+           
+             
             string alcoholType = collision.GetComponent<AlcoholController>().alcoholType.ToString();
             int dropValue = collision.GetComponent<AlcoholController>().dropValue;
             //Increments current amount if found
@@ -110,6 +138,7 @@ public class dropInCupDetector : MonoBehaviour
             currentActiveIngredient.type = "Alcohol";
 
             Destroy(collision.gameObject);
+           
         }
 
         if (collision.transform.tag.Equals("Garnish"))
@@ -158,6 +187,14 @@ public class dropInCupDetector : MonoBehaviour
         }
     }
 
+    void OnTriggerExit(Collider collision)
+    {
+        if (collision.transform.tag.Equals("Drop"))
+        {
+            
+        }
+    }
+
     private AlcoholSO getAlcoholSO(string CraftedIngredient)
     {
         foreach (AlcoholSO alcoholSO in mixedAlcoholData)
@@ -168,5 +205,13 @@ public class dropInCupDetector : MonoBehaviour
             }
         }
         return null;
+    }
+
+    // Coroutine to handle the delay before registering the next drop
+    private IEnumerator DelayBeforeNextDrop(Collider collision)
+    {
+        canRegisterDrop = false; // Disable drop registration
+        yield return new WaitForSeconds(delayBeforeRegistering); // Wait for the delay
+        canRegisterDrop = true; // Re-enable drop registration
     }
 }
