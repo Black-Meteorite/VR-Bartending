@@ -48,6 +48,7 @@ public class RecipeManager : MonoBehaviour
             recipeText.GetComponent<TextMeshProUGUI>().text = "Recipe not found.";
             return;
         }
+        //If a recipe requiring shaker
         if (shakerRecipe != null)
         {
             recipeText.GetComponent<TextMeshProUGUI>().text += "Drop into the Shaker: \n";
@@ -62,9 +63,10 @@ public class RecipeManager : MonoBehaviour
                 };
                 recipeText.GetComponent<TextMeshProUGUI>().text += $"{shakeIngredient.ingredientName}: {shakeIngredient.amount} {units}\n";
             }
+            recipeText.GetComponent<TextMeshProUGUI>().text += "\n Then shake. \n \n";
         };
 
-        recipeText.GetComponent<TextMeshProUGUI>().text += "\n Then shake. \n \n";
+        
 
         //List all the recipes for cup
         recipeText.GetComponent<TextMeshProUGUI>().text += "Drop into the Cup: \n";

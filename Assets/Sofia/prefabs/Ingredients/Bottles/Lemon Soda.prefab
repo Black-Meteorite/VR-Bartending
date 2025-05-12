@@ -61,9 +61,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7839439575440639899}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.22889099, y: 0.6690359, z: 0.6690358, w: -0.22889103}
+  m_LocalRotation: {x: 0.22889264, y: 0.66903526, z: 0.66903526, w: -0.22889264}
   m_LocalPosition: {x: -0.215, y: 1.194, z: 5.88}
-  m_LocalScale: {x: 15, y: 15, z: 15}
+  m_LocalScale: {x: 0.56249994, y: 0.56249994, z: 0.56250006}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6136988253890549054}
@@ -137,7 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLidOn: 0
   dropColor: {fileID: 2100000, guid: 6798819b1021c4fe5993e67786abf37f, type: 2}
-  dropPrefab: {fileID: 0}
+  dropPrefab: {fileID: 5802360842193054445, guid: 67d2909df8307734781f48752372f376, type: 3}
   alchoholType: Sprite
   dropSpawnPoint: {fileID: 5630171098813354967}
   dropRate: 0.5

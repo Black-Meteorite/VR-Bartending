@@ -8,7 +8,7 @@ public class StirringDetector : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        stirredDistance = 10f;
+        stirredDistance = 5.0f;
         currentDistance = 0f;
         canStir = false;
     }

@@ -36,7 +36,7 @@ public class dropInCupDetector : MonoBehaviour
     public activeIngredient currentActiveIngredient;
 
     public bool canRegisterDrop = true;
-    public float delayBeforeRegistering = 0.8f; // Delay in seconds
+    public float delayBeforeRegistering = 1.0f; // Delay in seconds
 
     public struct activeIngredient
     {
@@ -49,11 +49,11 @@ public class dropInCupDetector : MonoBehaviour
     private void Awake()
     {
         // Sample ingredients
-        /*ingredients.Add("Tequila", new IngredientData(50, "Alcohol"));
+        ingredients.Add("MangoSoju", new IngredientData(50, "Alcohol"));
         
-        ingredients.Add("OrangeJuice", new IngredientData(100, "Alcohol"));
-        ingredients.Add("CranberryJuice", new IngredientData(10, "Alcohol"));
-        ingredients.Add("Ice", new IngredientData(1, "Ice"));*/
+        ingredients.Add("LemonSoda", new IngredientData(100, "Alcohol"));
+        ingredients.Add("Lemon", new IngredientData(1, "Garnish"));
+        ingredients.Add("Ice", new IngredientData(1, "Ice"));
     }
     void Start()
     {
