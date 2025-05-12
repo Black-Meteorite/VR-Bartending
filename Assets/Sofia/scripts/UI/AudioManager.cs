@@ -30,7 +30,7 @@ public class AudioManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        Play("Little Root");
     }
 
     public void Play(string name)

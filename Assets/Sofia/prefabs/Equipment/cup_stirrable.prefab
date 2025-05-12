@@ -480,8 +480,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: afd6cad338a956d4abf276eb7c5d59db, type: 2}
   - {fileID: 11400000, guid: 02a624f606e93ce48980f634c57dc14b, type: 2}
   - {fileID: 11400000, guid: 61b8a7972102cc642939da6f5a1f2881, type: 2}
+  - {fileID: 11400000, guid: 25c48971958ffb74d94aa937eaf6307f, type: 2}
   ShakerRecipes: []
   mixedAlcoholData: []
+  CraftedDrink: 
+  CraftedIngredient: 
   drop: {fileID: 0}
   isMixed: 0
   isStirred: 0
@@ -501,5 +504,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentDistance: 0
-  stirredDistance: 0
+  stirredDistance: 10
   canStir: 0

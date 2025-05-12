@@ -24,13 +24,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7057337850711433291}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0.0199}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1025867139610830590}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &7441153764861316386
 GameObject:
   m_ObjectHideFlags: 0
@@ -63,7 +63,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.393299, y: 0.5876359, z: 0.5876359, w: -0.393299}
   m_LocalPosition: {x: -0.203, y: 1.213, z: 6.421}
-  m_LocalScale: {x: 8, y: 8, z: 8}
+  m_LocalScale: {x: 0.49999994, y: 0.49999994, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8601978100636515212}
@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bc7dd29ef1714a36b89bcf693befbf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLidOn: 0
   dropColor: {fileID: 2100000, guid: a66e94fa4e86a49b483dc1e6e15c05ab, type: 2}
   dropPrefab: {fileID: 2000641285215635141, guid: 982a6290a5454004fba66948bec03b6a, type: 3}
   alchoholType: Squirt

@@ -61,9 +61,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3498745851899816734}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.6751562, y: 0.21015245, z: 0.21015245, w: -0.6751563}
+  m_LocalRotation: {x: 0.67515635, y: 0.21015202, z: 0.21015202, w: -0.67515635}
   m_LocalPosition: {x: -0.117, y: 1.151, z: 7.434}
-  m_LocalScale: {x: 15, y: 15, z: 15}
+  m_LocalScale: {x: 0.62499994, y: 0.62499994, z: 0.625}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2645629503937733704}
@@ -135,8 +135,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bc7dd29ef1714a36b89bcf693befbf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLidOn: 0
   dropColor: {fileID: 2100000, guid: e141081f10270409b842445545f87933, type: 2}
-  dropPrefab: {fileID: 0}
+  dropPrefab: {fileID: 5997581775094769394, guid: ef622607fb03975419b3702ada9583ff, type: 3}
   alchoholType: Vodka
   dropSpawnPoint: {fileID: 6930511105962444104}
   dropRate: 0.5
@@ -240,7 +241,7 @@ MonoBehaviour:
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
   m_StartingInteractionStrengthFilters: []
-  m_AttachTransform: {fileID: 0}
+  m_AttachTransform: {fileID: 2645629503937733704}
   m_SecondaryAttachTransform: {fileID: 0}
   m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1
@@ -335,10 +336,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5483354409256942981}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -0.0001, y: 0.00015, z: 0.03346}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3040539734102332057}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}

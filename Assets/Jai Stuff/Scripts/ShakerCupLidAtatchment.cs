@@ -15,20 +15,20 @@ public class ShakerCupSnap : MonoBehaviour
     }
 
     void Update()
-{
-    if (lidSnapped && Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
     {
-        lid.SetParent(null);
-        lidRb.isKinematic = false;
-        lidRb.useGravity = true;
-        lidSnapped = false;
+        if (lidSnapped && Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
+        {
+            lid.SetParent(null);
+           /* lidRb.isKinematic = false;
+            lidRb.useGravity = true;
+            lidSnapped = false;*/
 
-        // 🔼 Teleport the lid 0.5 meters on the right
-        lid.position += Vector3.right * 0.5f;
+            // 🔼 Teleport the lid 5 meters upward
+            lid.position += Vector3.right * 0.5f;
 
-        Debug.Log("Lid released and teleported on the right.");
+            Debug.Log("Lid released and teleported up.");
+        }
     }
-}
 
     private void OnTriggerEnter(Collider other)
     {

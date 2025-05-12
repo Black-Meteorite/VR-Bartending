@@ -27,7 +27,7 @@ public class tiltBottleCode : MonoBehaviour
     void Update()
     {
 
-        if (dropPrefab != null && !isLidOn)
+        if (dropPrefab != null )
         {
             TriggerPouring();
         }
@@ -97,9 +97,6 @@ public class tiltBottleCode : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        if(collision.transform.Equals("Lid"))
-        {
-            isLidOn = true;
-        }
+      
     }
 }

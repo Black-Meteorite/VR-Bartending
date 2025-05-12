@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AlcoholSO">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="AlcoholSO.AlcoholType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Sofia\scripts\Ingredients\Alcohol\AlcoholSO.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAgAAAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Sofia\scripts\Ingredients\Alcohol\AlcoholSO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GarnishSO">
+    <Position X="3" Y="0.75" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="GarnishSO.GarnishType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Sofia\scripts\Ingredients\Garnish\GarnishSO.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAAAAAABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Sofia\scripts\Ingredients\Garnish\GarnishSO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

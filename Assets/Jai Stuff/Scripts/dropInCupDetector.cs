@@ -49,11 +49,11 @@ public class dropInCupDetector : MonoBehaviour
     private void Awake()
     {
         // Sample ingredients
-        ingredients.Add("MangoSoju", new IngredientData(50, "Alcohol"));
+       /* ingredients.Add("MangoSoju", new IngredientData(50, "Alcohol"));
         
         ingredients.Add("LemonSoda", new IngredientData(100, "Alcohol"));
         ingredients.Add("Lemon", new IngredientData(1, "Garnish"));
-        ingredients.Add("Ice", new IngredientData(1, "Ice"));
+        ingredients.Add("Ice", new IngredientData(1, "Ice"));*/
     }
     void Start()
     {
@@ -133,11 +133,7 @@ public class dropInCupDetector : MonoBehaviour
         // Start the delay timer
         StartCoroutine(DelayBeforeNextDrop(collision));
 
-        //If lid on then no pouring allow
-        if (collision.transform.tag.Equals("Lid"))
-        {
-            return;
-        }
+       
 
         if (collision.transform.tag.Equals("Drop"))
         {
@@ -210,6 +206,7 @@ public class dropInCupDetector : MonoBehaviour
                 //Resets the shakers distance and removes drop abilities
                 this.GetComponent<CocktailShakerController>().currentDistance = 0;
                 this.GetComponent<CocktailShakerController>().canShake = false;
+                isMixed = false;
                 this.GetComponent<tiltBottleCode>().dropPrefab = null;
             }
 
@@ -217,6 +214,7 @@ public class dropInCupDetector : MonoBehaviour
             {
                 //Resets Stirring distance
                 this.GetComponent<StirringDetector>().currentDistance = 0;
+                isStirred = false;
                 this.GetComponent<StirringDetector>().canStir = false;
             }
 

@@ -81,5 +81,11 @@ public class RecipeManager : MonoBehaviour
             };
             recipeText.GetComponent<TextMeshProUGUI>().text += $"{ingredient.ingredientName}: {ingredient.amount} {units}\n";
         }
-    }  
+
+        if (shakerRecipe == null)
+        {
+            recipeText.GetComponent<TextMeshProUGUI>().text += $"Stir and enjoy!";
+        }
+
+        }  
 }
